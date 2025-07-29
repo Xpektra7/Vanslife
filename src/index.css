@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.clip-van{
+  clip-path: polygon(15px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20px);
+}
