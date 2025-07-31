@@ -19,7 +19,7 @@ export default function Vans(){
     }
     const vanElements = vans.map(van => (
          <div key={van.id} className="w-full flex flex-col gap-4 relative">
-            <img alt={van.name} src={van.imageUrl} className="w-full aspect-square object-cover object-center clip-van border-1 border-orange-200"/>
+            <img alt={van.van} src={van.imageUrl} className="w-full aspect-square object-cover object-center clip-van border-1 border-orange-200"/>
             <div className="w-full flex items-center justify-between">
                 <h3 className="font-bold">{van.van}</h3>
                 <p className="font-bold">${van.price}<small className="font-normal">/day</small></p>
