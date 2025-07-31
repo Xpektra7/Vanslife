@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import aboutImg from "../assets/images/about-hero.png";
 export default function About() {
   return (
-    <section className="flex flex-col gap-4 m-16">
+    <section className="flex flex-col gap-4 m-8 md:m-16">
         <img src={aboutImg} alt="About Us" className="w-full h-[60vh] rounded-md clip-van border-1 border-orange-200 object-cover object-center" />
         <div className="flex flex-col gap-4">
             <h1 className="text-4xl font-bold ">Don’t squeeze in a sedan when you could relax in a van.</h1>

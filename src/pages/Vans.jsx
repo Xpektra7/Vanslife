@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import { Link } from "react-router-dom";
 export default function Vans(){
     const [vans, setVans] = React.useState([])
     React.useEffect(() => {
@@ -19,7 +20,9 @@ export default function Vans(){
     }
     const vanElements = vans.map(van => (
          <div key={van.id} className="w-full flex flex-col gap-4 relative">
+            <Link to={`/vans/${van.id}`} className="w-full h-full">
             <img alt={van.van} src={van.imageUrl} className="w-full aspect-square object-cover object-center clip-van border-1 border-orange-200"/>
+            </Link>
             <div className="w-full flex items-center justify-between">
                 <h3 className="font-bold">{van.van}</h3>
                 <p className="font-bold">${van.price}<small className="font-normal">/day</small></p>
@@ -29,7 +32,7 @@ export default function Vans(){
     ))
 
     return (
-        <div className="py-8 flex flex-col gap-8 px-16">
+        <div className="py-8 flex flex-col gap-8 px-8 md:px-16">
             <h1 className="text-3xl">Explore our van options</h1>
             <div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-8">
                 {vanElements}
