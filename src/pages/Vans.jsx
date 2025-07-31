@@ -34,13 +34,17 @@ export default function Vans(){
     return (
         <div className="py-8 flex flex-col gap-8 px-8 md:px-16">
             <h1 className="text-3xl">Explore our van options</h1>
+            {
+                vans ? (
             <div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-8">
-                {vans ? vanElements : (
-                    <div className="w-full flex items-center justify-center h-[60vh]">
-                        <p className="text-xl text-orange-400">Loading...</p>
-                    </div>
-                )}
+                {vanElements}
             </div>
+            ):(
+                <div className="w-full flex items-center justify-center h-[60vh]">
+                    <p className="text-xl text-orange-400">Loading...</p>
+                </div>
+            )
+            }
         </div>
     );
 }
