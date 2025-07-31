@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Jetbrains";
+  src: url(JetBrainsMono-Regular.woff2);
+}
+@font-face{
+  font-family: "Satoshi";
+  src: url(Satoshi-Variable.woff2);
+}
+body {
+  font-family: "Satoshi", sans-serif, system-ui;
+}
+h1,h2,h3,h4 {
+  font-family: "Jetbrains", monospace;
+}
+
 .clip-van{
   clip-path: polygon(15px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20px);
 }
