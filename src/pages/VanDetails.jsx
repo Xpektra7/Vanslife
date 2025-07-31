@@ -38,7 +38,7 @@ export default function VanDetails(){
                     <h3 className="font-bold text-5xl">{van.van}</h3>
                     <h4 className="text-5xl">${van.price}<small className="font-normal text-xl">/day</small></h4>
                     <p className="text-xl">{van.description}</p>
-                    <div className="h-auto w-full flex flex-col gap-4 bg-orange-300 rounded-md p-4 px-8 mt-8">
+                    <div className="h-auto w-full clip-van flex flex-col gap-4 bg-orange-300 rounded-md p-4 px-8 mt-8">
                         <h2 className="text-2xl font-extrabold">Your destination is waiting.<br />Your van is ready.</h2>
                         <Link className="block w-fit bg-neutral-900 p-2 px-8 text-white rounded-md clip-van" to="/vans">Explore our vans</Link>
                     </div>
