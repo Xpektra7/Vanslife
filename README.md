@@ -5,33 +5,44 @@ Vanslife is a web platform that connects van owners with individuals looking to 
 
 ---
 
-🔧 Features
+## Features
 
-🔍 Browse Vans – Filter vans by location, type, price, or availability.
+🔍 Browse Vans – Filter vans by type, price, or availability.
 
-📝 List a Van – Van owners can register and publish their vans with descriptions, pricing, and photos.
 
-🗓️ Book a Van – Renters can view details and book vans directly through the platform.
+---
 
-📩 Messaging – Secure communication between owners and renters (optional).
+## Todo
 
-💳 Payment Integration – (Planned/Optional) Stripe or PayPal for secure transactions.
+[ ] List a Van – Van owners can register and publish their vans with descriptions, pricing, and photos.
 
-⭐ Ratings & Reviews – (Planned) Renters can rate and review vans after use.
+[ ] Book a Van – Renters can view details and book vans directly through the platform.
+
+[ ] Payment Integration – Stripe or PayPal for secure transactions.
+
+[ ] Ratings & Reviews - Renters can rate and review vans after use.
+
+[ ] Add user profile dashboards for owners and renters
+
+[ ] Implement map-based van search using Google Maps or Leaflet
+
+[ ] Add notifications & booking confirmations via email.
+
+
 
 
 
 ---
 
-🖥️ Tech Stack
+# 🖥️ Tech Stack
 
 Area	Technology
 
-Frontend	HTML, CSS, JavaScript / React / Tailwind (your stack)
-Backend (opt.)	Node.js + Express / Firebase / Supabase
-Database	MongoDB / PostgreSQL / Firebase Firestore
-Hosting	Vercel / Netlify / Firebase Hosting
-Auth	Firebase Auth / Auth0 (if needed)
+Frontend	HTML, CSS, JavaScript / React / Tailwind
+Backend: Firebase 
+Database	Firebase Firestore
+Hosting	: Vercel
+Auth:	Firebase Auth
 
 
 
@@ -62,49 +73,6 @@ DB_URI=your_database_uri
 API_KEY=your_api_key
 
 
-
-
----
-
-🧩 Folder Structure (React-based example)
-
-vanslife/
-│
-├── public/           # Static files
-├── src/
-│   ├── assets/       # Images, icons
-│   ├── components/   # Reusable UI components
-│   ├── pages/        # Route-based pages (e.g., Home, Listings)
-│   ├── services/     # API or Firebase logic
-│   └── App.jsx       # Main app
-├── .env
-├── package.json
-└── README.md
-
-
----
-
-📸 Screenshots (Optional)
-
-> Add screenshots of homepage, listing page, or booking flow here if you have them.
-
-
-
-
----
-
-🛠️ Future Improvements
-
-Add user profile dashboards for owners and renters
-
-Implement map-based van search using Google Maps or Leaflet
-
-Add notifications & booking confirmations via email
-
-Add mobile app support via React Native or PWA
-
-
-
 ---
 
 📄 License
@@ -128,20 +96,4 @@ Pull requests are welcome! If you want to contribute:
 
 
 4. Submit a PR
-
-
-
-
----
-
-📫 Contact
-
-For suggestions or feedback:
-📧 vanslife@example.com (replace with real contact)
-🌐 vanslife.com (if hosted)
-
-
----
-
-Let me know if you want it adapted to your exact tech stack (e.g., vanilla JS, Firebase, React, etc.), or if you're adding any unique feature.
 
