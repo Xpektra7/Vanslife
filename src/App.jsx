@@ -1,32 +1,33 @@
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Vans from './pages/Vans';
-import VanDetails from './pages/VanDetails';
-
+import Vans from "./pages/Vans/Vans";
+import VanDetails from "./pages/Vans/VanDetails";
+import Layout from "./components/Layout";
+import Dashboard from "./pages/Host/Dashboard";
+import Income from "./pages/Host/Income";
+import Reviews from "./pages/Host/Reviews";
+import HostLayout from "./components/HostLayout";
 
 function App() {
-
   return (
     <BrowserRouter className="">
-      <header className="flex items-center justify-between bg-orange-200 text-black p-4 px-8 md:px-16 h-[10vh]">
-        <Link to="/"><div className="text-3xl font-bold clip-van bg-orange-300 py-1 flex items-center rounded-md px-8">VANLIFE</div></Link>
-        <ul className="flex gap-4 justify-center">
-          <li><Link to="/about" className="text-xl cursor-pointer">About</Link></li>
-          <li><Link to="/vans" className="text-xl cursor-pointer">Vans</Link></li>
-        </ul>
-      </header>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/vans/:id" element={<VanDetails />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path="vans/:id" element={<VanDetails />} />
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="vans" element={<HostVans />} />
+            <Route path="vans/:id" element={<HostVanDetails />} />
+          </Route>
+        </Route>
       </Routes>
-      <footer className="bg-neutral-900 flex text-white items-center justify-center p-4 px-16 h-[10vh]">
-        &copy; 2025 #VANLIFE
-      </footer>
     </BrowserRouter>
-      
   );
 }
 
