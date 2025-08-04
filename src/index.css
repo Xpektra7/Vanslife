@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: "Jetbrains";
-  src: url(JetBrainsMono-Regular.woff2);
+  src: url(/JetBrainsMono-Regular.woff2);
 }
 @font-face{
   font-family: "Satoshi";
-  src: url(Satoshi-Variable.woff2);
+  src: url(/Satoshi-Variable.woff2);
 }
 body {
   font-family: "Satoshi";
