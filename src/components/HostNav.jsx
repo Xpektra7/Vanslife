@@ -9,6 +9,11 @@ export default function HostNav() {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/host/vans" className={({isActive}) => isActive? "text-xl cursor-pointer text-orange-400" : "text-xl cursor-pointer"}>
+            Vans
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/host/income" className={({isActive}) => isActive? "text-xl cursor-pointer text-orange-400" : "text-xl cursor-pointer"}>
             Income
           </NavLink>

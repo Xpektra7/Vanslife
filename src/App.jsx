@@ -8,6 +8,8 @@ import Dashboard from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
 import HostLayout from "./components/HostLayout";
+import HostVans from "./pages/Host/HostVans/HostVans";
+import HostVanDetails from "./pages/Host/HostVans/HostVanDetails";
 
 function App() {
   return (

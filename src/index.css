@@ -9,10 +9,10 @@
   src: url(Satoshi-Variable.woff2);
 }
 body {
-  font-family: "Satoshi", sans-serif, system-ui;
+  font-family: "Satoshi";
 }
 h1,h2,h3,h4{
-  font-family: "Jetbrains", monospace;
+  font-family: "Jetbrains";
 }
 
 .clip-van{
