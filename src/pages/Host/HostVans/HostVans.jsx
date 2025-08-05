@@ -12,7 +12,7 @@ export default function HostVans(){
             return `bg-amber-800`;
         }
         else if(type == "simple"){
-            return  `bg-orange-400`;
+            return  `bg-orange-500`;
         }
         else if(type == "luxury"){
             return  `bg-purple-600`;
@@ -20,7 +20,7 @@ export default function HostVans(){
     }
     const vanElements = vans.map(van => (
          <div key={van.id} className="w-full flex gap-4 relative p-4 bg-white clip-van border border-orange-100">
-            <Link to={`/host/vans/${van.id}`} className="h-full aspect-square object-cover object-center">
+            <Link to={van.id} className="h-full aspect-square object-cover object-center">
                 <img alt={van.van} src={van.imageUrl} className="h-full aspect-square object-cover object-center clip-van border-1 border-orange-200"/>
             </Link>
             <div className="w-full flex flex-col justify-center">
@@ -39,7 +39,7 @@ export default function HostVans(){
             </div>
             ):(
                 <div className="w-full flex items-center justify-center h-[60vh]">
-                    <p className="text-xl text-orange-400">Loading...</p>
+                    <p className="text-xl text-orange-500">Loading...</p>
                 </div>
             )
             }

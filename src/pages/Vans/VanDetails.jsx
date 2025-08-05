@@ -1,8 +1,9 @@
 import { useState,useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation} from "react-router-dom";
 export default function VanDetails(){
     
     const {id} = useParams();
+    const location = useLocation()
     const numericId = parseInt(id, 10) - 1;
     const [van, setVan] = useState(null)
     useEffect(() => {
@@ -12,24 +13,33 @@ export default function VanDetails(){
     }, []);
     
     function typeColor(type){
-    if (type == "rugged") {
-        return `bg-amber-800`;
+        if (type == "rugged") {
+            return `bg-amber-800`;
+        }
+        else if(type == "simple"){
+            return  `bg-orange-500`;
+        }
+        else if(type == "luxury"){
+            return  `bg-purple-600`;
+        }
     }
-    else if(type == "simple"){
-        return  `bg-orange-400`;
-    }
-    else if(type == "luxury"){
-        return  `bg-purple-600`;
-    }
-}
 
+    function conditionalString(){
+        const char = location.state.filter;
+
+        const text = char ? char : "all"
+
+        return text
+         
+    }
+    
 
     return(
         <section className="w-full flex flex-col gap-8 p-8 md:p-16">
             {van ? (
                 <>
                     <p>
-                    <Link to="/vans" className="hover:text-orange-7 transition ease-in duration-300">&larr; Back to all vans</Link>
+                    <Link to={`..${location.state ? `?${location.state.search}` : null}`} relative="path" className="hover:text-orange-7 transition ease-in duration-300">&larr; Back to {conditionalString()} vans</Link>
                     </p>
                     <div className="w-full flex flex-col md:flex-row gap-16">
                         <div className="w-full md:w-2/5 relative">
@@ -46,7 +56,7 @@ export default function VanDetails(){
                 </>
             ) : (
                 <div className="w-full flex items-center justify-center h-[60vh]">
-                    <p className="text-xl text-orange-400">Loading...</p>
+                    <p className="text-xl text-orange-500">Loading...</p>
                 </div>
             )}
 

@@ -14,7 +14,7 @@ export default function HostVanDetails() {
     if (type == "rugged") {
       return `bg-amber-800`;
     } else if (type == "simple") {
-      return `bg-orange-400`;
+      return `bg-orange-500`;
     } else if (type == "luxury") {
       return `bg-purple-600`;
     }
@@ -65,7 +65,7 @@ export default function HostVanDetails() {
                   to={``}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-sm md:text-xl cursor-pointer text-orange-400"
+                      ? "text-sm md:text-xl cursor-pointer text-orange-500"
                       : "text-sm md:text-xl cursor-pointer"
                   }
                   end
@@ -78,7 +78,7 @@ export default function HostVanDetails() {
                   to={`pricing`}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-sm md:text-xl cursor-pointer text-orange-400"
+                      ? "text-sm md:text-xl cursor-pointer text-orange-500"
                       : "text-sm md:text-xl cursor-pointer"
                   }
                 >
@@ -90,7 +90,7 @@ export default function HostVanDetails() {
                   to={`photos`}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-sm md:text-xl cursor-pointer text-orange-400"
+                      ? "text-sm md:text-xl cursor-pointer text-orange-500"
                       : "text-sm md:text-xl cursor-pointer"
                   }
                 >
@@ -103,7 +103,7 @@ export default function HostVanDetails() {
         </>
       ) : (
         <div className="w-full flex items-center justify-center h-[60vh]">
-          <p className="text-xl text-orange-400">Loading...</p>
+          <p className="text-xl text-orange-500">Loading...</p>
         </div>
       )}
     </section>
