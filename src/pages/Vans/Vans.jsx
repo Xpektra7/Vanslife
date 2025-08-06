@@ -1,18 +1,19 @@
 import React from "react";
-import { Link, useSearchParams} from "react-router-dom";
+import { Link, useSearchParams, useLoaderData} from "react-router-dom";
+import { loader } from "../../api";
+
+export function vansLoader(){
+    return loader();
+}
+
 export default function Vans(){
 
+    const vans = useLoaderData()
 
-    const [vans, setVans] = React.useState([])
     const [searchParams,setSearchParams] = useSearchParams();
     const typeFilter = searchParams.get("type");
 
-    React.useEffect(() => {
-    fetch("/server.json")
-        .then(res => res.json())
-        .then(data => setVans(data));
-    }, []);
-
+    
 
     function typeColor(type){
         if (type == "rugged") {
@@ -72,17 +73,9 @@ export default function Vans(){
                     luxury
                 </button>
             </div>
-            {
-                vans ? (
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {vanElements}
             </div>
-            ):(
-                <div className="w-full flex items-center justify-center h-[60vh]">
-                    <p className="text-xl text-orange-500">Loading...</p>
-                </div>
-            )
-            }
         </div>
     );
 }

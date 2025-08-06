@@ -10,7 +10,7 @@ export default function Details(){
         .then((data) => setVan(data[numericId]));
     }, []);
     return(
-       <ul className="w-full md:w-3/5 flex flex-col gap-4">
+       <ul className="w-full md:w-3/5 flex flex-col gap-4 ">
             <p className=""><span className="font-bold">Name:</span> {van.van}</p>
             <p className="capitalize"><span className="font-bold">Category:</span> {van.type}</p>
             <p className=""><span className="font-bold">Description:</span> {van.description}</p>

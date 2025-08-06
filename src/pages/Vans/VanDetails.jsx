@@ -24,14 +24,6 @@ export default function VanDetails(){
         }
     }
 
-    function conditionalString(){
-        const char = location.state.filter;
-
-        const text = char ? char : "all"
-
-        return text
-         
-    }
     
 
     return(
@@ -39,7 +31,7 @@ export default function VanDetails(){
             {van ? (
                 <>
                     <p>
-                    <Link to={`..${location.state ? `?${location.state.search}` : null}`} relative="path" className="hover:text-orange-7 transition ease-in duration-300">&larr; Back to {conditionalString()} vans</Link>
+                    <Link to={`..${location.state ? `?${location.state.search}` : null}`} relative="path" className="hover:text-orange-7 transition ease-in duration-300">&larr; Back to {location.state.filter || "all"} vans</Link>
                     </p>
                     <div className="w-full flex flex-col md:flex-row gap-16">
                         <div className="w-full md:w-2/5 relative">

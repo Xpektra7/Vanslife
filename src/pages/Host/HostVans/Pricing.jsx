@@ -10,6 +10,6 @@ export default function Pricing(){
         .then((data) => setVan(data[numericId]));
     }, []);
     return(
-       <p><span className="font-bold text-2xl">${van.price}.00</span>/day</p>
+       <p className="h-[20vh]"><span className="font-bold text-2xl">${van.price}.00</span>/day</p>
     )
 }

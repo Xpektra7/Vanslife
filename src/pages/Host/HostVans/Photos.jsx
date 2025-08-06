@@ -10,6 +10,9 @@ export default function Photos(){
         .then((data) => setVan(data[numericId]));
     }, []);
     return(
-       <img src={van.imageUrl} alt={van.van} className="w-[100px] aspect-square border border-orange-300 clip-van" />
+        <div className="h-[20vh]">
+            <img src={van.imageUrl} alt={van.van} className="w-[100px] aspect-square border border-orange-300 clip-van" />
+        </div>
+       
     )
 }
