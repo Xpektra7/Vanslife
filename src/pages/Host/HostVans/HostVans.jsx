@@ -1,23 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { loader } from "../../../api";
+
+export function hostVansLoader(){
+    return loader();
+}
+
 export default function HostVans(){
-    const [vans, setVans] = React.useState([])
-    React.useEffect(() => {
-    fetch("/server.json")
-        .then(res => res.json())
-        .then(data => setVans(data));
-    }, []);
-    function typeColor(type){
-        if (type == "rugged") {
-            return `bg-amber-800`;
-        }
-        else if(type == "simple"){
-            return  `bg-orange-500`;
-        }
-        else if(type == "luxury"){
-            return  `bg-purple-600`;
-        }
-    }
+
+    const vans = useLoaderData();
+
     const vanElements = vans.map(van => (
          <div key={van.id} className="w-full flex gap-4 relative p-4 bg-white clip-van border border-orange-100">
             <Link to={van.id} className="h-full aspect-square object-cover object-center">
@@ -32,17 +23,9 @@ export default function HostVans(){
 
     return (
         <div className="py-8 flex flex-col gap-8 ">
-            {
-                vans ? (
             <div className="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-8 auto-rows-[100px]">
                 {vanElements}
             </div>
-            ):(
-                <div className="w-full flex items-center justify-center h-[60vh]">
-                    <p className="text-xl text-orange-500">Loading...</p>
-                </div>
-            )
-            }
         </div>
     );
 }

@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
-import { useParams, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLoaderData } from "react-router-dom";
+import { loader } from "../../../api";
+
+export function hostVanDetailsLoader({ params }){
+  return loader(params.id);
+}
+
 export default function HostVanDetails() {
-  const { id } = useParams();
-  const numericId = parseInt(id, 10) - 1;
-  const [van, setVan] = useState(null);
-  useEffect(() => {
-    fetch("/server.json")
-      .then((res) => res.json())
-      .then((data) => setVan(data[numericId]));
-  }, []);
+
+  const van = useLoaderData()
 
   function typeColor(type) {
     if (type == "rugged") {
@@ -22,8 +21,6 @@ export default function HostVanDetails() {
 
   return (
     <section className="w-full flex flex-col gap-8">
-      {van ? (
-        <>
           <p>
             <NavLink
               to=".."
@@ -100,12 +97,6 @@ export default function HostVanDetails() {
             </ul>
           </nav>
           <Outlet />
-        </>
-      ) : (
-        <div className="w-full flex items-center justify-center h-[60vh]">
-          <p className="text-xl text-orange-500">Loading...</p>
-        </div>
-      )}
     </section>
   );
 }

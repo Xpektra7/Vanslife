@@ -1,14 +1,45 @@
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
+
+export async function loginLoader({ request }){
+    return new URL(request.url).searchParams.get("message")
+}
+
+
 export default function Login(){
+
+    const message = useLoaderData();
+
+    const [loginFormData, setLoginFormData] = useState({email: "", password: ""});
+
+    function handleSubmit(e){
+        e.preventDefault()
+        console.log(loginFormData);
+        
+    }
+
+    function handleChange(e){
+        const {name, value} = e.target;
+        setLoginFormData(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
     return(
         <section className="flex flex-col items-center justify-center min-h-[80vh] gap-8 p-4 md:p-8 px:8 md:px-16">
-            <h1 className="text-3xl font-bold">Sign in to your account</h1>
-            <form className=" w-full items-center flex flex-col gap-2">
-                <input type="email" name="email" id="email" className="w-full md:w-[30vw] bg-white p-1 border border-orange-500  " placeholder="Email Address"/>
-                <input type="password" name="password" id="password" className="w-full md:w-[30vw] bg-white p-1 border border-orange-500 outline-none " placeholder="Password"/>
+            { message ? (
+                <div className="p-2 text-red-500 font-bold text-center text-sm w-full md:w-[50vw] max-w-[540px]">
+                    {message}
+                </div>
+            ) : null}
+            <h1 className="text-3xl font-bold">Sign in to your account </h1>
+            <form className=" w-full items-center flex flex-col gap-2" onSubmit={handleSubmit}>
+                <input type="email" name="email" id="email" className="w-full md:w-[50vw] max-w-[540px] bg-whie p-1 border border-orange-500 outline-none" placeholder="Email Address" onChange={handleChange} required/>
+                <input type="password" name="password" id="password" className="w-full md:w-[50vw] max-w-[540px] bg-whie p-1 border border-orange-500 outline-none" placeholder="Password" onChange={handleChange} required/>
+                <button type="submit" className="p-2 flex flex-col w-full md:w-[50vw] max-w-[540px] items-center  clip-van text-white bg-neutral-900 hover:bg-orange-500 transition ease-in duration-300 cursor-pointer">Sign in</button>
             </form>
             <div className="flex flex-col items-center gap-2">
-                <Link className="p-2 flex flex-col items-center w-full md:w-[30vw] clip-van text-white bg-neutral-900 hover:bg-orange-500 transition ease-in duration-300 cursor-pointer">Sign in</Link>
                 <p className="">Don't have an account? <span className="text-orange-500">Create new one</span></p>
             </div>
         </section>

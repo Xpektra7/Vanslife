@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useSearchParams, useLoaderData} from "react-router-dom";
 import { loader } from "../../api";
 
