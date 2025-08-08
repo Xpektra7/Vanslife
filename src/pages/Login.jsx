@@ -36,9 +36,9 @@ export default function Login(){
                     {error.message}
                 </div>
             ) : null}
-            <Form method="post" className=" w-full items-center flex flex-col gap-2 " >
-                <input type="email" name="email" id="email" className="w-full md:w-[50vw] max-w-[540px] bg-whie p-1 border border-orange-500 outline-none" placeholder="Email Address" />
-                <input type="password" name="password" id="password" className="w-full md:w-[50vw] max-w-[540px] bg-whie p-1 border border-orange-500 outline-none" placeholder="Password" />
+            <Form method="post" replace className=" w-full items-center flex flex-col gap-2 " >
+                <input type="email" name="email" id="email" className="w-full md:w-[50vw] max-w-[540px] bg-whie p-1 border border-orange-500 outline-none" placeholder="Email Address" required/>
+                <input type="password" name="password" id="password" className="w-full md:w-[50vw] max-w-[540px] bg-whie p-1 border border-orange-500 outline-none" placeholder="Password" required/>
                 <button type="submit" disabled={status === "submitting"} className="p-2 flex flex-col w-full md:w-[50vw] max-w-[540px] items-center  clip-van text-white bg-neutral-900 hover:bg-orange-500 transition ease-in duration-300 cursor-pointer">
                     {status === "submitting" ? "Signing in..." : "Sign in" }
                     </button>
