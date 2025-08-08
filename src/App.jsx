@@ -45,7 +45,7 @@ function App() {
       />
       <Route
         path="host"
-        loader={async () => await requiredAuth() }
+        loader={async ({request}) => await requiredAuth(request) }
         element={<HostLayout />}
       >
         <Route

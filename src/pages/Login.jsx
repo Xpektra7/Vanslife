@@ -12,12 +12,13 @@ function sleep(ms){
 
 export async function action({ request }){
     await sleep(2000)
+    const pathname = new URL(request.url).searchParams.get("redirectTo") || null
     const formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
     try {
         const data = await login({email, password})
-        return redirect("/host")
+        return redirect(pathname)
     } catch (error) {
         return error
     }
