@@ -12,3 +12,19 @@ export async function loader(id) {
     return data
 }
 
+export async function login({email,password}){
+    if(email === "b@b.com" && password === "garri"){
+        return {
+            user:{
+                name: "Imran",
+                email: email,
+                password: password,
+            },
+            token: "Enjoy your ride"
+        }
+    }else{
+        throw{
+             message: "No user with those credentials found."
+        }
+    }
+}
