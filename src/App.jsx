@@ -22,13 +22,13 @@ import Pricing from "./pages/Host/HostVans/Pricing";
 import Photos from "./pages/Host/HostVans/Photos";
 import NotFound from "./components/NotFound";
 import Error from "./components/Error";
-import Login, { loginLoader } from "./pages/Login";
+import Login, { loginLoader, action as loginAction } from "./pages/Login";
 import { requiredAuth } from "./utils";
 
 function App() {
   const routes = createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="login" element={<Login />} loader={loginLoader}/>
+      <Route path="login" element={<Login />} loader={loginLoader} action={loginAction}/>
       <Route path="*" element={<NotFound />} />
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />

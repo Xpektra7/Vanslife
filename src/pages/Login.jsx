@@ -1,11 +1,20 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Form } from "react-router-dom";
 import { login } from "../api";
 
 export async function loginLoader({ request }){
     return new URL(request.url).searchParams.get("message")
 }
 
+export async function action({ request }){
+    const formData = await request.formData()
+    const email = formData.get("email")
+    const password = formData.get("password")
+    const data = await login({email, password})
+    console.log(data);
+    
+    return null
+} 
 
 export default function Login(){
 
@@ -28,13 +37,13 @@ export default function Login(){
                     {error.message}
                 </div>
             ) : null}
-            <form className=" w-full items-center flex flex-col gap-2" >
+            <Form method="post" className=" w-full items-center flex flex-col gap-2 " >
                 <input type="email" name="email" id="email" className="w-full md:w-[50vw] max-w-[540px] bg-whie p-1 border border-orange-500 outline-none" placeholder="Email Address" />
                 <input type="password" name="password" id="password" className="w-full md:w-[50vw] max-w-[540px] bg-whie p-1 border border-orange-500 outline-none" placeholder="Password" />
                 <button type="submit" disabled={status === "submitting"} className="p-2 flex flex-col w-full md:w-[50vw] max-w-[540px] items-center  clip-van text-white bg-neutral-900 hover:bg-orange-500 transition ease-in duration-300 cursor-pointer">
                     {status === "submitting" ? "Signing in..." : "Sign in" }
                     </button>
-            </form>
+            </Form>
             <div className="flex flex-col items-center gap-2">
                 <p className="">Don't have an account? <span className="text-orange-500">Create new one</span></p>
             </div>
