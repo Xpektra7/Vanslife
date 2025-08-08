@@ -14,6 +14,7 @@ export async function loader(id) {
 
 export async function login({email,password}){
     if(email === "b@b.com" && password === "garri"){
+        localStorage.setItem("isLoggedIn",true)
         return {
             user:{
                 name: "Imran",

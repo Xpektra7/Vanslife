@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData, Form } from "react-router-dom";
+import { useLoaderData, Form, redirect } from "react-router-dom";
 import { login } from "../api";
 
 export async function loginLoader({ request }){
@@ -11,9 +11,8 @@ export async function action({ request }){
     const email = formData.get("email")
     const password = formData.get("password")
     const data = await login({email, password})
-    console.log(data);
+    return redirect("/host")
     
-    return null
 } 
 
 export default function Login(){
