@@ -12,7 +12,7 @@ function sleep(ms){
 
 export async function action({ request }){
     await sleep(2000)
-    const pathname = new URL(request.url).searchParams.get("redirectTo") || null
+    const pathname = new URL(request.url).searchParams.get("redirectTo") || "/host"
     const formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
